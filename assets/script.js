@@ -235,7 +235,25 @@ var pastSearchHandler = function(event){
     }
 }
 
+// This function is being called below and will run when the page loads.
+function init() {
+  
+    var storedCities = JSON.parse(localStorage.getItem("cities"));
+    
+  
+    
+    if (storedCities !== null) {
+        // set cities = storedCities, so when reload page, cities is not [], it will have data before reload. 
+      cities = storedCities;
+      
+    }
+     pastSearch()
+     //getCityWeather();
+     //get5Day();
+ 
+  }
 
+init()
 
 cityFormEl.addEventListener("submit", formSumbitHandler);
 pastSearchButtonEl.addEventListener("click", pastSearchHandler);
